@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Camerin Innovation - Campus Drive Registration Form</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        #it{
+            display:"none"
+        }
+        #nonit{
+            display:"none"
+        }
 </head>
 <body>
     <div class="container">
@@ -34,7 +41,16 @@
                 <label for="college">College Details</label>
                 <input type="text" id="college" name="college">
             </div>
-            <div class="form-group">
+            <div class="form-group" id="itprofile">
+                <label for="profile">Profile for Interview *</label>
+                <select id="profile" name="profile" required>
+                    <option value="">Select Profile</option>
+                    <option value="Flutter associate developer">Flutter associate developer</option>
+                    <option value="Java associate developer">Java associate developer</option>
+                    <option value="React nodeJS associate developer">React nodeJS associate developer</option>
+                </select>
+            </div>
+            <div class="form-group" id="nonitprofile">
                 <label for="profile">Profile for Interview *</label>
                 <select id="profile" name="profile" required>
                     <option value="">Select Profile</option>
@@ -57,6 +73,20 @@
             </div>
             <button type="submit">Submit</button>
         </form>
+        <script>
+             addListener('onchange',function(){
+                let crs=document.getElementById("stream").value;
+                let it=document.getElementById("itprofile")
+                let nonit=document.getElementById("nonitprofile")
+                if(crs.test("IT"))
+                {
+                      it.style.display="block"
+                }
+                else if(crs.test("Non-IT")){
+                    nonit.style.display="block"
+                }
+             })
+            </script>
     </div>
 </body>
 </html>
